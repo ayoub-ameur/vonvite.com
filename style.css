@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #030303;
+    --accent-cyan: #00f2ff;
+    --accent-gold: #ffd700;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --sidebar-width: 80px;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    z-index: 100;
+    background: var(--bg-color);
+}
+
+.logo-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+}
+
+/* Main Content */
+main {
+    margin-left: var(--sidebar-width);
+    padding: 0 5%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    mask-image: linear-gradient(to bottom, black 70%, transparent);
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span.script {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    display: block;
+    font-size: 0.5em;
+    margin-bottom: -0.2em;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid var(--accent-cyan);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+}
+
+/* Sections */
+section {
+    padding: 150px 0;
+}
+
+.section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-cyan);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    max-width: 800px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 60px 40px;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
+}
+
+.service-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--accent-cyan);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* AI/n8n Special Section */
+.automation-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.automation-image {
+    position: relative;
+}
+
+.automation-image img {
+    width: 100%;
+    border-radius: 10px;
+    filter: grayscale(1) contrast(1.2);
+}
+
+.automation-image::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent-cyan);
+    z-index: -1;
+}
+
+/* Footer */
+footer {
+    padding: 100px 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--accent-cyan);
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        padding: 0 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .logo-vertical, .nav-links a {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+    }
+    .nav-links {
+        flex-direction: row;
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+    main {
+        margin-left: 0;
+        padding-top: 60px;
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .automation-section {
+        grid-template-columns: 1fr;
+    }
+}
