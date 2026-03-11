@@ -6,7 +6,7 @@
     <title>Vonvite | Automation n8n & Services IA au Maroc</title>
     <meta name="description" content="Vonvite propulse votre entreprise avec l'automation n8n et des solutions d'intelligence artificielle sur mesure au Maroc. Vendez plus vite, automatisez tout.">
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.363.0"></script>
 </head>
 <body>
 
@@ -15,101 +15,106 @@
         <a href="#" class="logo-vertical">Vonvite</a>
         <ul class="nav-links">
             <li><a href="#services">SERVICES</a></li>
-            <li><a href="#automation">AUTOMATION</a></li>
+            <li><a href="#process">PROCESS</a></li>
             <li><a href="#maroc">MAROC</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
-        <div class="socials">
-            <!-- Space for icons if needed -->
-        </div>
     </aside>
 
     <main>
         <!-- Hero Section -->
         <header class="hero">
-            <div class="hero-bg">
-                <img src="/Users/yakeey/.gemini/antigravity/brain/f47a8034-cff1-4d5b-af5d-acd2e7e1451f/vonvite_hero_bg_1773150748488.png" alt="Futuristic Moroccan AI Background">
-            </div>
             <div class="hero-content">
                 <h1>
                     <span class="script">L'IA qui</span>
                     VEND VITE.
                 </h1>
                 <p>Nous fusionnons l'automation n8n de pointe avec l'intelligence artificielle pour transformer vos processus business au Maroc.</p>
-                <a href="#contact" class="cta-button">DÉCOLLER MAINTENANT</a>
+                <div class="hero-ctas">
+                    <a href="#contact" class="cta-button">DÉCOLLER MAINTENANT</a>
+                    <a href="#services" class="secondary-cta">Voir nos services ↓</a>
+                </div>
             </div>
         </header>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar" aria-label="Résultats clés">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <span class="stat-value" data-target="90" data-suffix="%">0%</span>
+                    <span class="stat-label">Réduction des erreurs</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-value" data-target="4" data-suffix="x">0x</span>
+                    <span class="stat-label">Vitesse de vente</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-value" data-target="100" data-suffix="%">0%</span>
+                    <span class="stat-label">Support Local</span>
+                </div>
+            </div>
+        </section>
 
         <!-- Services Section -->
         <section id="services">
             <span class="section-tag">/01 EXPERTISE</span>
             <h2 class="section-title">Nos services propulsés par l'IA</h2>
-            
             <div class="services-grid">
                 <div class="service-card reveal">
                     <span class="service-number">01</span>
-                    <i data-lucide="zap" class="icon-cyan"></i>
+                    <i data-lucide="zap" class="icon-purple"></i>
                     <h3>n8n Automation</h3>
-                    <p>Worfklows complexes, intégrations fluides. Nous automatisons vos tâches répétitives pour libérer votre potentiel créatif.</p>
+                    <p>Workflows complexes, intégrations fluides. Nous automatisons vos tâches répétitives pour libérer votre potentiel créatif.</p>
                 </div>
                 <div class="service-card reveal">
                     <span class="service-number">02</span>
-                    <i data-lucide="bot" class="icon-cyan"></i>
+                    <i data-lucide="bot" class="icon-purple"></i>
                     <h3>Agents IA Dédiés</h3>
                     <p>Des assistants intelligents formés sur vos données, disponibles 24/7 pour votre support client ou votre prospection.</p>
                 </div>
                 <div class="service-card reveal">
                     <span class="service-number">03</span>
-                    <i data-lucide="database" class="icon-cyan"></i>
+                    <i data-lucide="database" class="icon-purple"></i>
                     <h3>Extraction de Données</h3>
                     <p>Scraping éthique et analyse de données par IA pour une veille concurrentielle imbattable au Maroc.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Automation Section -->
-        <section id="automation">
-            <div class="automation-section">
-                <div class="reveal">
-                    <span class="section-tag">/02 WORKFLOW</span>
-                    <h2 class="section-title">Un cerveau numérique pour votre entreprise</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 30px;">
-                        L'outil n8n est au cœur de notre écosystème. Il ne s'agit pas seulement de connecter des applications, mais de créer une logique métier autonome qui apprend et s'adapte grâce à l'IA.
-                    </p>
-                    <ul style="list-style: none; color: var(--accent-cyan); font-family: 'JetBrains Mono';">
-                        <li>> Webhooks Temps Réel</li>
-                        <li>> LLM Intégration (OpenAI, Anthropic)</li>
-                        <li>> Connexion Base de Données Directe</li>
-                    </ul>
+        <!-- Process Section -->
+        <section id="process">
+            <span class="section-tag">/02 PROCESS</span>
+            <h2 class="section-title">Comment ça marche</h2>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="step-number">01</div>
+                    <h3>Audit</h3>
+                    <p>On analyse vos processus et identifie les gains rapides.</p>
                 </div>
-                <div class="automation-image reveal">
-                    <img src="/Users/yakeey/.gemini/antigravity/brain/f47a8034-cff1-4d5b-af5d-acd2e7e1451f/vonvite_automation_graphic_1773150934459.png" alt="Flux n8n Vonvite">
+                <div class="process-step reveal">
+                    <div class="step-number">02</div>
+                    <h3>Build</h3>
+                    <p>On construit vos workflows n8n et agents IA sur mesure.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">03</div>
+                    <h3>Déploiement</h3>
+                    <p>On déploie, on forme, on reste disponibles.</p>
                 </div>
             </div>
         </section>
 
         <!-- Morocco Focus -->
-        <section id="maroc" style="background: linear-gradient(to bottom, transparent, rgba(0, 242, 255, 0.05), transparent);">
-            <div class="reveal" style="text-align: center; max-width: 900px; margin: 0 auto;">
+        <section id="maroc" class="maroc-section">
+            <div class="maroc-inner reveal">
                 <span class="section-tag">/03 LOCALISATION</span>
-                <h2 class="section-title" style="margin: 0 auto 40px auto;">Accélérez la transformation digitale au Maroc</h2>
-                <p style="font-size: 1.5rem; font-weight: 300; color: var(--text-secondary);">
-                    Vonvite comprend les spécificités du marché marocain. Nous adaptons nos solutions d'IA pour répondre aux besoins locaux, qu'il s'agisse de gestion de stock, d'e-commerce ou de services financiers.
-                </p>
-                <div style="margin-top: 60px; display: flex; justify-content: center; gap: 40px;">
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--accent-cyan);">90%</h4>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Réduction des erreurs</p>
-                    </div>
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--accent-cyan);">4x</h4>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Vitesse de vente</p>
-                    </div>
-                    <div style="text-align: left;">
-                        <h4 style="color: var(--accent-cyan);">100%</h4>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Support Local</p>
-                    </div>
-                </div>
+                <h2 class="section-title">Accélérez la transformation digitale au Maroc</h2>
+                <p>Vonvite comprend les spécificités du marché marocain. Nous adaptons nos solutions d'IA pour répondre aux besoins locaux.</p>
+                <ul class="maroc-bullets">
+                    <li>&gt; Gestion de stock automatisée</li>
+                    <li>&gt; E-commerce &amp; prospection IA</li>
+                    <li>&gt; Services financiers &amp; conformité</li>
+                </ul>
             </div>
         </section>
 
@@ -117,11 +122,11 @@
         <section id="contact">
             <span class="section-tag">/04 START</span>
             <h2 class="section-title">Prêt à Vonvite ?</h2>
-            <div style="background: var(--glass-bg); padding: 60px; border: 1px solid var(--glass-border); max-width: 600px;">
-                <form action="#" style="display: flex; flex-direction: column; gap: 20px;">
-                    <input type="text" placeholder="Nom complet" style="background: transparent; border: none; border-bottom: 1px solid var(--glass-border); padding: 10px; color: white;">
-                    <input type="email" placeholder="Email professionnel" style="background: transparent; border: none; border-bottom: 1px solid var(--glass-border); padding: 10px; color: white;">
-                    <textarea placeholder="Parlez-nous de votre projet..." rows="4" style="background: transparent; border: none; border-bottom: 1px solid var(--glass-border); padding: 10px; color: white;"></textarea>
+            <div class="contact-form-wrap reveal">
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="text" name="name" placeholder="Nom complet" required />
+                    <input type="email" name="email" placeholder="Email professionnel" required />
+                    <textarea name="message" rows="4" placeholder="Parlez-nous de votre projet..."></textarea>
                     <button type="submit" class="cta-button">ENVOYER LE MESSAGE</button>
                 </form>
             </div>
@@ -130,54 +135,10 @@
         <footer>
             <div class="footer-content">
                 <div class="footer-logo">Vonvite</div>
-                <div class="copyright">
-                    &copy; 2026 Vonvite Maroc. Propulsé par n8n & IA.
-                </div>
+                <div class="copyright">&copy; 2026 Vonvite Maroc. Propulsé par n8n &amp; IA.</div>
             </div>
         </footer>
     </main>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Reveal animations on scroll
-        const reveals = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        // Initial check
-        revealOnScroll();
-    </script>
-
-    <style>
-        .icon-cyan {
-            color: var(--accent-cyan);
-            width: 32px;
-            height: 32px;
-            margin-bottom: 20px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
 </body>
 </html>
