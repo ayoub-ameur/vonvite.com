@@ -3,12 +3,14 @@
 :root {
     --bg-color: #0a0010;
     --accent-purple: #9d4edd;
+    --accent-purple-rgb: 157, 78, 221;
     --accent-purple-light: #c77dff;
+    --accent-purple-light-rgb: 199, 125, 255;
     --text-primary: #ffffff;
     --text-secondary: #aaaaaa;
     --sidebar-width: 80px;
-    --glass-bg: rgba(157, 78, 221, 0.04);
-    --glass-border: rgba(157, 78, 221, 0.15);
+    --glass-bg: rgba(var(--accent-purple-rgb), 0.04);
+    --glass-border: rgba(var(--accent-purple-rgb), 0.15);
 }
 
 * {
@@ -34,14 +36,14 @@ body {
 }
 
 @keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 10px rgba(157, 78, 221, 0.4), 0 0 20px rgba(157, 78, 221, 0.2); }
-    50%       { box-shadow: 0 0 25px rgba(157, 78, 221, 0.9), 0 0 50px rgba(157, 78, 221, 0.4); }
+    0%, 100% { box-shadow: 0 0 10px rgba(var(--accent-purple-rgb), 0.4), 0 0 20px rgba(var(--accent-purple-rgb), 0.2); }
+    50%       { box-shadow: 0 0 25px rgba(var(--accent-purple-rgb), 0.9), 0 0 50px rgba(var(--accent-purple-rgb), 0.4); }
 }
 
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .reveal.active {
@@ -119,9 +121,9 @@ main {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(157, 78, 221, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(199, 125, 255, 0.2) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 50% at 60% 80%, rgba(157, 78, 221, 0.15) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(var(--accent-purple-rgb), 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(var(--accent-purple-light-rgb), 0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 60% 80%, rgba(var(--accent-purple-rgb), 0.15) 0%, transparent 60%);
     background-size: 200% 200%, 200% 200%, 200% 200%;
     animation: aurora 8s ease-in-out infinite;
     z-index: 0;
@@ -196,7 +198,7 @@ main {
     background: var(--accent-purple);
     color: var(--bg-color);
     animation: none;
-    box-shadow: 0 0 40px rgba(157, 78, 221, 0.6);
+    box-shadow: 0 0 40px rgba(var(--accent-purple-rgb), 0.6);
 }
 
 /* ── Sections ── */
@@ -222,9 +224,9 @@ section {
 /* ── Stats Bar ── */
 .stats-bar {
     padding: 60px 0;
-    background: rgba(157, 78, 221, 0.05);
-    border-top: 1px solid rgba(157, 78, 221, 0.2);
-    border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+    background: rgba(var(--accent-purple-rgb), 0.05);
+    border-top: 1px solid rgba(var(--accent-purple-rgb), 0.2);
+    border-bottom: 1px solid rgba(var(--accent-purple-rgb), 0.2);
     margin-left: calc(-5%);
     margin-right: calc(-5%);
     padding-left: 5%;
@@ -277,7 +279,7 @@ section {
 .service-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-purple);
-    box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
+    box-shadow: 0 0 30px rgba(var(--accent-purple-rgb), 0.2);
 }
 
 .service-number {
@@ -366,7 +368,7 @@ section {
 
 /* ── Morocco Focus ── */
 .maroc-section {
-    background: linear-gradient(to bottom, transparent, rgba(157, 78, 221, 0.05), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(var(--accent-purple-rgb), 0.05), transparent);
 }
 
 .maroc-inner {
@@ -418,7 +420,7 @@ section {
 .contact-form textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+    border-bottom: 1px solid rgba(var(--accent-purple-rgb), 0.3);
     padding: 12px 0;
     color: var(--text-primary);
     font-family: 'Outfit', sans-serif;
@@ -442,7 +444,7 @@ section {
 /* ── Footer ── */
 footer {
     padding: 60px 0;
-    border-top: 1px solid rgba(157, 78, 221, 0.2);
+    border-top: 1px solid rgba(var(--accent-purple-rgb), 0.2);
 }
 
 .footer-content {
