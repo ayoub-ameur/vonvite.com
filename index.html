@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vonvite | Automation n8n & Services IA au Maroc</title>
+    <title>Vonvite | Automation n8n &amp; Services IA au Maroc</title>
     <meta name="description" content="Vonvite propulse votre entreprise avec l'automation n8n et des solutions d'intelligence artificielle sur mesure au Maroc. Vendez plus vite, automatisez tout.">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@0.363.0"></script>
@@ -23,7 +23,7 @@
 
     <main>
         <!-- Hero Section -->
-        <header class="hero">
+        <section class="hero" aria-label="Accueil">
             <div class="hero-content">
                 <h1>
                     <span class="script">L'IA qui</span>
@@ -32,10 +32,10 @@
                 <p>Nous fusionnons l'automation n8n de pointe avec l'intelligence artificielle pour transformer vos processus business au Maroc.</p>
                 <div class="hero-ctas">
                     <a href="#contact" class="cta-button">DÉCOLLER MAINTENANT</a>
-                    <a href="#services" class="secondary-cta">Voir nos services ↓</a>
+                    <a href="#services" class="secondary-cta">Voir nos services &darr;</a>
                 </div>
             </div>
-        </header>
+        </section>
 
         <!-- Stats Bar -->
         <section class="stats-bar" aria-label="Résultats clés">
@@ -124,9 +124,12 @@
             <h2 class="section-title">Prêt à Vonvite ?</h2>
             <div class="contact-form-wrap reveal">
                 <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <input type="text" name="name" placeholder="Nom complet" required />
-                    <input type="email" name="email" placeholder="Email professionnel" required />
-                    <textarea name="message" rows="4" placeholder="Parlez-nous de votre projet..."></textarea>
+                    <label for="name" class="sr-only">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="Nom complet" required />
+                    <label for="email" class="sr-only">Email professionnel</label>
+                    <input type="email" id="email" name="email" placeholder="Email professionnel" required />
+                    <label for="message" class="sr-only">Votre projet</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Parlez-nous de votre projet..."></textarea>
                     <button type="submit" class="cta-button">ENVOYER LE MESSAGE</button>
                 </form>
             </div>
