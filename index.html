@@ -15,6 +15,7 @@
         <a href="#" class="logo-vertical">Vonvite</a>
         <ul class="nav-links">
             <li><a href="#services">SERVICES</a></li>
+            <li><a href="#workflows">WORKFLOWS</a></li>
             <li><a href="#process">PROCESS</a></li>
             <li><a href="#maroc">MAROC</a></li>
             <li><a href="#contact">CONTACT</a></li>
@@ -55,6 +56,44 @@
             </div>
         </section>
 
+        <!-- Workflow Search Section -->
+        <section id="workflows" class="search-section" aria-label="Recherche de workflows">
+            <div class="search-wrap reveal">
+                <span class="section-tag">/02 WORKFLOWS</span>
+                <h2 class="section-title">Quel processus voulez-vous automatiser&nbsp;?</h2>
+                <p>Décrivez en quelques mots ce que vous souhaitez automatiser. Nous vous suggérons les workflows n8n les plus adaptés.</p>
+                <div class="search-input-row" role="search">
+                    <label for="workflow-search" class="sr-only">Rechercher un workflow d'automatisation</label>
+                    <input
+                        type="text"
+                        id="workflow-search"
+                        class="search-input"
+                        placeholder="Ex : envoyer des emails après une commande…"
+                        autocomplete="off"
+                        spellcheck="false"
+                        aria-label="Décrivez votre besoin d'automatisation"
+                        aria-controls="workflow-results"
+                    />
+                    <button class="search-btn" id="workflow-search-btn" aria-label="Lancer la recherche">
+                        RECHERCHER
+                    </button>
+                </div>
+                <p class="search-hint">Essayez : "relancer mes prospects", "gérer les congés", "factures impayées"</p>
+            </div>
+            <div
+                class="search-results"
+                id="workflow-results"
+                role="region"
+                aria-label="Résultats de workflow"
+                aria-live="polite"
+            >
+                <div class="search-results-grid" id="workflow-results-grid"></div>
+                <p class="search-no-results" id="search-no-results">
+                    &gt; Aucun workflow trouvé. <a href="#contact" class="workflow-cta">Décrivez votre besoin</a> — nous pouvons en créer un sur mesure.
+                </p>
+            </div>
+        </section>
+
         <!-- Services Section -->
         <section id="services">
             <span class="section-tag">/01 EXPERTISE</span>
@@ -83,7 +122,7 @@
 
         <!-- Process Section -->
         <section id="process">
-            <span class="section-tag">/02 PROCESS</span>
+            <span class="section-tag">/03 PROCESS</span>
             <h2 class="section-title">Comment ça marche</h2>
             <div class="process-grid">
                 <div class="process-step reveal">
@@ -107,7 +146,7 @@
         <!-- Morocco Focus -->
         <section id="maroc" class="maroc-section">
             <div class="maroc-inner reveal">
-                <span class="section-tag">/03 LOCALISATION</span>
+                <span class="section-tag">/04 LOCALISATION</span>
                 <h2 class="section-title">Accélérez la transformation digitale au Maroc</h2>
                 <p>Vonvite comprend les spécificités du marché marocain. Nous adaptons nos solutions d'IA pour répondre aux besoins locaux.</p>
                 <ul class="maroc-bullets">
@@ -120,7 +159,7 @@
 
         <!-- Contact -->
         <section id="contact">
-            <span class="section-tag">/04 START</span>
+            <span class="section-tag">/05 START</span>
             <h2 class="section-title">Prêt à Vonvite ?</h2>
             <div class="contact-form-wrap reveal">
                 <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -213,6 +252,426 @@
         }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
 
         sections.forEach(section => spyObserver.observe(section));
+
+        // ═══════════════════════════════════════════════════════════
+        // 5. WORKFLOW SEARCH — Data layer
+        // ═══════════════════════════════════════════════════════════
+        const WORKFLOWS = [
+            {
+                id: 'wf-001',
+                title: 'Email de confirmation après commande',
+                category: 'ecommerce',
+                description: 'Envoie automatiquement un email de confirmation personnalisé au client dès qu\'une commande est créée dans WooCommerce ou Shopify. Inclut les détails de la commande et un message de marque.',
+                tags: ['email', 'commande', 'confirmation', 'client', 'boutique', 'achat', 'vente', 'woocommerce', 'shopify'],
+                tools: ['Gmail', 'WooCommerce', 'Shopify', 'n8n'],
+                useCase: 'E-commerce',
+                contactSubject: 'Workflow: Email de confirmation après commande'
+            },
+            {
+                id: 'wf-002',
+                title: 'Relance panier abandonné',
+                category: 'ecommerce',
+                description: 'Détecte les paniers abandonnés et envoie une série de 2 emails de relance espacés de 1h et 24h, avec un code promo optionnel pour récupérer la vente.',
+                tags: ['panier', 'abandonne', 'relance', 'email', 'promo', 'vente', 'recuperation', 'boutique'],
+                tools: ['Gmail', 'WooCommerce', 'Shopify', 'n8n'],
+                useCase: 'E-commerce',
+                contactSubject: 'Workflow: Relance panier abandonné'
+            },
+            {
+                id: 'wf-003',
+                title: 'Notification WhatsApp pour nouvelle commande',
+                category: 'ecommerce',
+                description: 'Envoie une notification WhatsApp au gérant dès qu\'une nouvelle commande arrive, avec le nom du client, les articles et le montant total.',
+                tags: ['whatsapp', 'commande', 'notification', 'alerte', 'gerant', 'boutique', 'vente'],
+                tools: ['WhatsApp Business', 'WooCommerce', 'n8n'],
+                useCase: 'E-commerce',
+                contactSubject: 'Workflow: Notification WhatsApp nouvelle commande'
+            },
+            {
+                id: 'wf-004',
+                title: 'Synchronisation stock vers Google Sheets',
+                category: 'ecommerce',
+                description: 'Met à jour automatiquement un fichier Google Sheets à chaque vente ou réassort, pour un inventaire toujours à jour sans saisie manuelle.',
+                tags: ['stock', 'inventaire', 'google sheets', 'synchronisation', 'boutique', 'produit', 'excel'],
+                tools: ['Google Sheets', 'WooCommerce', 'n8n'],
+                useCase: 'E-commerce',
+                contactSubject: 'Workflow: Synchronisation stock'
+            },
+            {
+                id: 'wf-005',
+                title: 'Capture et qualification automatique des leads',
+                category: 'crm',
+                description: 'Récupère les formulaires de contact, les enrichit avec des données publiques, attribue un score de qualification et les ajoute dans votre CRM (HubSpot, Notion, Airtable).',
+                tags: ['lead', 'prospect', 'qualification', 'crm', 'formulaire', 'contact', 'vente', 'commercial'],
+                tools: ['HubSpot', 'Notion', 'Airtable', 'n8n'],
+                useCase: 'CRM / Prospection',
+                contactSubject: 'Workflow: Capture et qualification des leads'
+            },
+            {
+                id: 'wf-006',
+                title: 'Relance automatique des prospects inactifs',
+                category: 'crm',
+                description: 'Identifie les prospects qui n\'ont pas été contactés depuis 7 jours dans votre CRM et envoie automatiquement un email ou WhatsApp de relance personnalisé.',
+                tags: ['relance', 'prospect', 'inactif', 'crm', 'email', 'whatsapp', 'commercial', 'suivi'],
+                tools: ['HubSpot', 'Gmail', 'WhatsApp', 'n8n'],
+                useCase: 'CRM / Prospection',
+                contactSubject: 'Workflow: Relance prospects inactifs'
+            },
+            {
+                id: 'wf-007',
+                title: 'Rapport commercial hebdomadaire automatique',
+                category: 'crm',
+                description: 'Compile chaque lundi les chiffres de ventes de la semaine précédente et envoie un rapport résumé par email au manager avec les tendances.',
+                tags: ['rapport', 'commercial', 'ventes', 'hebdomadaire', 'resume', 'manager', 'analyse', 'chiffres'],
+                tools: ['Google Sheets', 'Gmail', 'n8n'],
+                useCase: 'CRM / Reporting',
+                contactSubject: 'Workflow: Rapport commercial hebdomadaire'
+            },
+            {
+                id: 'wf-008',
+                title: 'Extraction et synthèse des avis clients',
+                category: 'crm',
+                description: 'Scrape automatiquement les avis Google My Business, les classe par sentiment positif/négatif et envoie un résumé hebdomadaire.',
+                tags: ['avis', 'client', 'google', 'sentiment', 'reputation', 'analyse', 'avis google'],
+                tools: ['Google My Business', 'OpenAI', 'n8n'],
+                useCase: 'CRM / Réputation',
+                contactSubject: 'Workflow: Extraction avis clients'
+            },
+            {
+                id: 'wf-009',
+                title: 'Génération automatique de devis PDF',
+                category: 'finance',
+                description: 'À partir d\'un formulaire ou d\'un message, génère un devis PDF professionnel en quelques secondes, l\'envoie au client et l\'archive dans Google Drive.',
+                tags: ['devis', 'facture', 'pdf', 'client', 'generation', 'automatique', 'drive', 'document'],
+                tools: ['Google Drive', 'Gmail', 'n8n'],
+                useCase: 'Finance / Administration',
+                contactSubject: 'Workflow: Génération devis PDF'
+            },
+            {
+                id: 'wf-010',
+                title: 'Relance automatique des factures impayées',
+                category: 'finance',
+                description: 'Détecte les factures dont l\'échéance est dépassée et envoie des relances progressives par email et SMS jusqu\'au paiement.',
+                tags: ['facture', 'impaye', 'relance', 'paiement', 'comptabilite', 'recouvrement', 'sms', 'email'],
+                tools: ['Gmail', 'Twilio', 'n8n'],
+                useCase: 'Finance / Recouvrement',
+                contactSubject: 'Workflow: Relance factures impayées'
+            },
+            {
+                id: 'wf-011',
+                title: 'Alertes budget et suivi des dépenses',
+                category: 'finance',
+                description: 'Catégorise automatiquement les dépenses de votre compte, les enregistre dans un tableau de bord et vous alerte quand un budget est dépassé.',
+                tags: ['depense', 'budget', 'alerte', 'finance', 'comptabilite', 'tableau de bord', 'banque'],
+                tools: ['Google Sheets', 'Gmail', 'n8n'],
+                useCase: 'Finance / Budget',
+                contactSubject: 'Workflow: Suivi dépenses et alertes budget'
+            },
+            {
+                id: 'wf-012',
+                title: 'Automatisation de la paie mensuelle',
+                category: 'hr',
+                description: 'Calcule automatiquement les salaires, congés et primes à partir d\'une feuille de présence, génère les bulletins de paie et les envoie à chaque employé.',
+                tags: ['paie', 'salaire', 'employe', 'rh', 'bulletin', 'conge', 'prime', 'ressources humaines'],
+                tools: ['Google Sheets', 'Gmail', 'n8n'],
+                useCase: 'RH / Paie',
+                contactSubject: 'Workflow: Automatisation paie mensuelle'
+            },
+            {
+                id: 'wf-013',
+                title: 'Onboarding automatique des nouveaux employés',
+                category: 'hr',
+                description: 'Dès qu\'un nouvel employé est ajouté au système, déclenche la création de ses comptes, l\'envoi du kit de bienvenue et l\'attribution des formations.',
+                tags: ['onboarding', 'employe', 'nouveau', 'rh', 'formation', 'bienvenue', 'compte', 'integration'],
+                tools: ['Google Workspace', 'Slack', 'n8n'],
+                useCase: 'RH / Onboarding',
+                contactSubject: 'Workflow: Onboarding nouveaux employés'
+            },
+            {
+                id: 'wf-014',
+                title: 'Gestion automatique des demandes de congé',
+                category: 'hr',
+                description: 'Le salarié soumet une demande via un formulaire, le manager reçoit une notification et approuve ou refuse en un clic, puis le calendrier est mis à jour.',
+                tags: ['conge', 'demande', 'rh', 'approbation', 'formulaire', 'calendrier', 'manager', 'salarie'],
+                tools: ['Google Forms', 'Google Calendar', 'Gmail', 'n8n'],
+                useCase: 'RH / Congés',
+                contactSubject: 'Workflow: Gestion demandes de congé'
+            },
+            {
+                id: 'wf-015',
+                title: 'Chatbot support client sur WhatsApp',
+                category: 'communication',
+                description: 'Un agent IA répond automatiquement aux questions fréquentes de vos clients sur WhatsApp 24h/24, et escalade les cas complexes vers un humain.',
+                tags: ['chatbot', 'whatsapp', 'support', 'client', 'ia', 'agent', 'reponse automatique', 'service client'],
+                tools: ['WhatsApp Business', 'OpenAI', 'n8n'],
+                useCase: 'Communication / Support',
+                contactSubject: 'Workflow: Chatbot support WhatsApp'
+            },
+            {
+                id: 'wf-016',
+                title: 'Publication automatique sur les réseaux sociaux',
+                category: 'communication',
+                description: 'Planifie et publie automatiquement du contenu sur Instagram, Facebook et LinkedIn selon un calendrier éditorial, avec récupération des métriques.',
+                tags: ['reseaux sociaux', 'publication', 'instagram', 'facebook', 'linkedin', 'contenu', 'marketing', 'automatique'],
+                tools: ['Instagram', 'Facebook', 'LinkedIn', 'n8n'],
+                useCase: 'Communication / Marketing',
+                contactSubject: 'Workflow: Publication réseaux sociaux'
+            },
+            {
+                id: 'wf-017',
+                title: 'Newsletter automatique hebdomadaire',
+                category: 'communication',
+                description: 'Compile automatiquement le contenu de la semaine (nouveaux produits, articles, offres) et envoie une newsletter formatée à votre liste chaque vendredi.',
+                tags: ['newsletter', 'email', 'hebdomadaire', 'liste', 'contact', 'contenu', 'marketing', 'abonne'],
+                tools: ['Mailchimp', 'Gmail', 'n8n'],
+                useCase: 'Communication / Email Marketing',
+                contactSubject: 'Workflow: Newsletter automatique'
+            },
+            {
+                id: 'wf-018',
+                title: 'Alertes SMS pour livraison et logistique',
+                category: 'ecommerce',
+                description: 'Envoie automatiquement un SMS au client à chaque étape clé de la livraison : confirmation d\'expédition, passage en douane, livraison imminente.',
+                tags: ['sms', 'livraison', 'logistique', 'client', 'expedition', 'suivi', 'alerte', 'transport'],
+                tools: ['Twilio', 'WooCommerce', 'n8n'],
+                useCase: 'E-commerce / Logistique',
+                contactSubject: 'Workflow: Alertes SMS livraison'
+            },
+            {
+                id: 'wf-019',
+                title: 'Veille concurrentielle automatique',
+                category: 'crm',
+                description: 'Surveille chaque jour les prix, promotions et nouveaux produits de vos concurrents et envoie un rapport de veille condensé à votre équipe chaque matin.',
+                tags: ['veille', 'concurrence', 'concurrent', 'prix', 'promotion', 'marche', 'analyse', 'rapport'],
+                tools: ['OpenAI', 'Gmail', 'n8n'],
+                useCase: 'Business Intelligence',
+                contactSubject: 'Workflow: Veille concurrentielle'
+            },
+            {
+                id: 'wf-020',
+                title: 'Synchronisation contacts CRM et WhatsApp',
+                category: 'crm',
+                description: 'Maintient automatiquement la liste de contacts WhatsApp Business synchronisée avec votre CRM, pour ne jamais rater un message d\'un prospect ou client.',
+                tags: ['contact', 'synchronisation', 'crm', 'whatsapp', 'client', 'prospect', 'liste'],
+                tools: ['WhatsApp Business', 'HubSpot', 'n8n'],
+                useCase: 'CRM / Communication',
+                contactSubject: 'Workflow: Sync contacts CRM-WhatsApp'
+            },
+            {
+                id: 'wf-021',
+                title: 'Réponse automatique aux emails entrants',
+                category: 'communication',
+                description: 'Classe les emails entrants par priorité et sujet grâce à l\'IA, répond automatiquement aux demandes simples et crée des tickets pour les cas complexes.',
+                tags: ['email', 'reponse automatique', 'tri', 'classification', 'ia', 'support', 'boite mail', 'gmail'],
+                tools: ['Gmail', 'OpenAI', 'n8n'],
+                useCase: 'Communication / Support',
+                contactSubject: 'Workflow: Réponse automatique emails'
+            },
+            {
+                id: 'wf-022',
+                title: 'Tableau de bord performance temps réel',
+                category: 'finance',
+                description: 'Agrège les données de ventes, trafic et marketing en un seul tableau de bord Google Sheets mis à jour toutes les heures.',
+                tags: ['tableau de bord', 'dashboard', 'performance', 'kpi', 'ventes', 'donnees', 'temps reel', 'rapport'],
+                tools: ['Google Sheets', 'Google Analytics', 'n8n'],
+                useCase: 'Finance / Reporting',
+                contactSubject: 'Workflow: Tableau de bord performance'
+            },
+            {
+                id: 'wf-023',
+                title: 'Génération de descriptions produit par IA',
+                category: 'ecommerce',
+                description: 'Génère automatiquement des descriptions de produits optimisées SEO en français à partir d\'une fiche technique, et les publie sur votre boutique.',
+                tags: ['contenu', 'produit', 'description', 'seo', 'ia', 'redaction', 'boutique', 'automatique', 'generation'],
+                tools: ['OpenAI', 'WooCommerce', 'n8n'],
+                useCase: 'E-commerce / Marketing',
+                contactSubject: 'Workflow: Génération descriptions produit'
+            },
+            {
+                id: 'wf-024',
+                title: 'Rappels de rendez-vous automatiques',
+                category: 'communication',
+                description: 'Envoie automatiquement un SMS ou WhatsApp de rappel 24h et 1h avant chaque rendez-vous planifié dans Google Calendar ou Calendly.',
+                tags: ['rendez-vous', 'rappel', 'sms', 'whatsapp', 'agenda', 'calendrier', 'client', 'confirmation'],
+                tools: ['Google Calendar', 'Calendly', 'Twilio', 'n8n'],
+                useCase: 'Communication / Agenda',
+                contactSubject: 'Workflow: Rappels rendez-vous automatiques'
+            },
+            {
+                id: 'wf-025',
+                title: 'Tri automatique des candidatures et CVs',
+                category: 'hr',
+                description: 'Reçoit les candidatures par email, extrait les informations clés du CV avec l\'IA, note chaque candidat selon vos critères et alerte le RH des meilleurs profils.',
+                tags: ['recrutement', 'cv', 'candidature', 'rh', 'tri', 'candidat', 'ia', 'emploi', 'poste'],
+                tools: ['Gmail', 'OpenAI', 'Airtable', 'n8n'],
+                useCase: 'RH / Recrutement',
+                contactSubject: 'Workflow: Tri automatique CVs'
+            }
+        ];
+
+        // ═══════════════════════════════════════════════════════════
+        // 6. WORKFLOW SEARCH — Engine (tokenize + score)
+        // ═══════════════════════════════════════════════════════════
+        const WF_STOP_WORDS = new Set([
+            'je','veux','un','une','des','le','la','les','de','du','et','en',
+            'pour','avec','sur','mon','ma','mes','que','qui','au','aux','est',
+            'se','si','ou','mais','donc','apres','avant','dans','par','tout',
+            'tous','nous','vous','ils','faire','avoir','etre','pouvoir','vouloir',
+            'comment','quand','quel','quelle','quels','quelles','nos','vos','leur',
+            'leurs','cette','ces','ce','cet','plus','tres','aussi','bien','comme',
+            'automatiquement','automatique','automatiser','automatisation'
+        ]);
+
+        const WF_STEM_MAP = {
+            'emails':'email','commandes':'commande','clients':'client',
+            'factures':'facture','employes':'employe','prospects':'prospect',
+            'ventes':'vente','produits':'produit','contacts':'contact',
+            'relances':'relance','rapports':'rapport',
+            'notifications':'notification','alertes':'alerte',
+            'conges':'conge','salaries':'salarie','candidats':'candidat',
+            'depenses':'depense','donnees':'donnee','reseaux':'reseau',
+            'paniers':'panier','boutiques':'boutique','commissions':'commission'
+        };
+
+        const WF_FIELD_WEIGHTS = { tags: 10, title: 6, tools: 5, description: 3, category: 2 };
+
+        function wfDeaccent(str) {
+            return str
+                .replace(/[éèêë]/g, 'e').replace(/[àâ]/g, 'a')
+                .replace(/[ôö]/g, 'o').replace(/[ûùü]/g, 'u')
+                .replace(/[îï]/g, 'i').replace(/ç/g, 'c')
+                .replace(/ñ/g, 'n').replace(/[''']/g, '');
+        }
+
+        function wfTokenize(text) {
+            const normalized = wfDeaccent(text.toLowerCase());
+            return normalized
+                .split(/[\s\-_,;:.!?()"\/\\]+/)
+                .filter(t => t.length > 2 && !WF_STOP_WORDS.has(t))
+                .map(t => WF_STEM_MAP[t] ?? t);
+        }
+
+        function wfScore(workflow, queryTokens) {
+            const fields = {
+                tags:        workflow.tags,
+                title:       wfTokenize(workflow.title),
+                tools:       workflow.tools.map(t => wfTokenize(t)).flat(),
+                description: wfTokenize(workflow.description),
+                category:    [workflow.category]
+            };
+            let total = 0;
+            const matched = new Set();
+
+            for (const [field, weight] of Object.entries(WF_FIELD_WEIGHTS)) {
+                const fieldTokens = fields[field];
+                for (const qt of queryTokens) {
+                    if (fieldTokens.includes(qt)) {
+                        total += weight;
+                        matched.add(qt);
+                    } else if (fieldTokens.some(ft => ft.startsWith(qt) || qt.startsWith(ft))) {
+                        total += weight * 0.4;
+                        matched.add(qt);
+                    }
+                }
+            }
+            // Coherence bonus: most query tokens matched
+            if (queryTokens.length > 0 && matched.size / queryTokens.length >= 0.5) {
+                total *= 1.25;
+            }
+            return total;
+        }
+
+        function wfSearch(rawQuery) {
+            const queryTokens = wfTokenize(rawQuery);
+            if (queryTokens.length === 0) return [];
+            return WORKFLOWS
+                .map(wf => ({ wf, score: wfScore(wf, queryTokens) }))
+                .filter(({ score }) => score > 0)
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 3)
+                .map(({ wf }) => wf);
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // 7. WORKFLOW SEARCH — UI (render + events)
+        // ═══════════════════════════════════════════════════════════
+        const wfSearchInput   = document.getElementById('workflow-search');
+        const wfSearchBtn     = document.getElementById('workflow-search-btn');
+        const wfResultsWrap   = document.getElementById('workflow-results');
+        const wfResultsGrid   = document.getElementById('workflow-results-grid');
+        const wfNoResults     = document.getElementById('search-no-results');
+
+        function buildWorkflowCard(wf, index) {
+            const card = document.createElement('article');
+            card.className = 'workflow-card';
+            card.setAttribute('aria-label', 'Workflow : ' + wf.title);
+
+            const toolsHtml = wf.tools
+                .map(t => `<span class="tool-tag">${t}</span>`)
+                .join('');
+
+            card.innerHTML = `
+                <span class="workflow-card-category">${wf.useCase}</span>
+                <h3>${wf.title}</h3>
+                <p>${wf.description}</p>
+                <div class="workflow-tools" aria-label="Outils utilisés">${toolsHtml}</div>
+                <button class="workflow-cta" data-subject="${wf.contactSubject}">
+                    &gt; Discuter de ce workflow &rarr;
+                </button>
+            `;
+
+            // Staggered entrance
+            setTimeout(() => card.classList.add('card-visible'), index * 90);
+
+            // Pre-fill contact form and scroll to it
+            card.querySelector('.workflow-cta').addEventListener('click', () => {
+                const msgField = document.getElementById('message');
+                if (msgField) {
+                    msgField.value = `Bonjour, je suis intéressé(e) par le workflow :\n"${wf.title}"\n\nPouvez-vous m'en dire plus ?`;
+                }
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            return card;
+        }
+
+        function wfRenderResults(workflows) {
+            wfResultsGrid.innerHTML = '';
+            wfNoResults.classList.remove('visible');
+
+            if (workflows.length === 0) {
+                wfResultsWrap.classList.add('has-results');
+                wfNoResults.classList.add('visible');
+                return;
+            }
+
+            workflows.forEach((wf, i) => wfResultsGrid.appendChild(buildWorkflowCard(wf, i)));
+            wfResultsWrap.classList.add('has-results');
+        }
+
+        function wfHandleSearch() {
+            const query = wfSearchInput.value.trim();
+            if (!query) return;
+            wfRenderResults(wfSearch(query));
+        }
+
+        wfSearchBtn.addEventListener('click', wfHandleSearch);
+        wfSearchInput.addEventListener('keydown', e => {
+            if (e.key === 'Enter') wfHandleSearch();
+        });
+
+        let wfDebounce;
+        wfSearchInput.addEventListener('input', () => {
+            clearTimeout(wfDebounce);
+            const val = wfSearchInput.value.trim();
+            if (val.length >= 4) {
+                wfDebounce = setTimeout(wfHandleSearch, 350);
+            } else if (val.length === 0) {
+                wfResultsWrap.classList.remove('has-results');
+                wfResultsGrid.innerHTML = '';
+                wfNoResults.classList.remove('visible');
+            }
+        });
     </script>
 </body>
 </html>
